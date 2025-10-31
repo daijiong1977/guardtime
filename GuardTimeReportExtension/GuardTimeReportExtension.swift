@@ -32,6 +32,53 @@ struct ChildActivityData: Identifiable {
     let weeklyHistory: [DailyActivityData]? // Only populated when history is requested
 }
 
+// MARK: - Helper Functions
+/// Calculates actual app usage during study hours (6-10 PM) based on segment timing
+/// IMPORTANT: This only returns accurate data when monitoring is active during study hours.
+/// Without active monitoring, iOS doesn't provide hour-by-hour breakdowns, so we return 0.
+func calculateStudyHourUsageForSegment(segmentInterval: DateInterval, appDuration: TimeInterval, date: Date) -> TimeInterval {
+    let calendar = Calendar.current
+    let now = Date()
+    let dayStart = calendar.startOfDay(for: date)
+    
+    // Only calculate study time for today
+    guard calendar.isDate(date, inSameDayAs: now) else {
+        return 0
+    }
+    
+    // Define study hours: 6 PM (18:00) to 10 PM (22:00)
+    guard let studyStart = calendar.date(bySettingHour: 18, minute: 0, second: 0, of: dayStart),
+          let studyEnd = calendar.date(bySettingHour: 22, minute: 0, second: 0, of: dayStart) else {
+        return 0
+    }
+    
+    let currentHour = calendar.component(.hour, from: now)
+    
+    // If it's before 6 PM, study time hasn't started yet - return 0
+    if currentHour < 18 {
+        return 0
+    }
+    
+    // If it's during or after study hours, check if the segment contains study hour data
+    // The segment usually spans the full day, so we can't accurately determine
+    // WHEN during the day the app was used without active monitoring.
+    // 
+    // For accurate study time tracking, monitoring must be active during 6-10 PM.
+    // Until then, return 0 to avoid showing estimated/incorrect data.
+    
+    // Only return study time if we're currently IN study hours or monitoring was active
+    if currentHour >= 18 && currentHour < 22 {
+        // We're currently in study hours - but without monitoring, we can't distinguish
+        // whether the app usage happened NOW or earlier in the day
+        // Return 0 until monitoring provides real-time data
+        return 0
+    }
+    
+    // If it's after 10 PM and the segment ends after study hours ended,
+    // we might have some study hour usage, but without monitoring we can't tell
+    return 0
+}
+
 // MARK: - Extension Entry Point
 @main
 struct GuardTimeReportExtension: DeviceActivityReportExtension {
@@ -92,27 +139,35 @@ struct TotalActivityReport: DeviceActivityReportScene {
                 var appsThisDay: [String: (TimeInterval, String)] = [:]
                 
                 for await category in segment.categories {
-                    let categoryName = category.category.localizedDisplayName ?? "Other"
-                    let isSocial = categoryName.lowercased().contains("social") ||
-                                  categoryName.lowercased().contains("entertainment") ||
-                                  categoryName.lowercased().contains("networking")
-                    
-                    if isSocial {
-                        socialTimeThisDay += category.totalActivityDuration
+                    // Process ALL apps in this category
+                    for await app in category.applications {
+                        let appName = app.application.localizedDisplayName ?? "Unknown App"
+                        let appDuration = app.totalActivityDuration
+                        let tokenString = "\(app.application.token.hashValue)"
                         
-                        for await app in category.applications {
-                            let appName = app.application.localizedDisplayName ?? "Unknown App"
-                            let appDuration = app.totalActivityDuration
-                            let tokenString = "\(app.application.token.hashValue)"
+                        // Track ALL apps (matches Apple Screen Time behavior)
+                        if let existing = appsThisDay[appName] {
+                            appsThisDay[appName] = (existing.0 + appDuration, existing.1)
+                        } else {
+                            appsThisDay[appName] = (appDuration, tokenString)
+                        }
+                        
+                        // Custom social app list - track these 5 specific apps
+                        let socialApps = ["snapchat", "tiktok", "messages", "instagram", "youtube"]
+                        let appNameLower = appName.lowercased()
+                        let isSocialApp = socialApps.contains { appNameLower.contains($0) }
+                        
+                        // If this is one of our monitored social apps, count towards social time
+                        if isSocialApp {
+                            socialTimeThisDay += appDuration
                             
-                            if let existing = appsThisDay[appName] {
-                                appsThisDay[appName] = (existing.0 + appDuration, existing.1)
-                            } else {
-                                appsThisDay[appName] = (appDuration, tokenString)
-                            }
-                            
-                            // Estimate study hours (6-10 PM ≈ 17% of day)
-                            studyTimeThisDay += appDuration * 0.17
+                            // Calculate study hours usage for social apps
+                            let studyHourUsage = calculateStudyHourUsageForSegment(
+                                segmentInterval: segment.dateInterval,
+                                appDuration: appDuration,
+                                date: segmentDay
+                            )
+                            studyTimeThisDay += studyHourUsage
                         }
                     }
                 }
@@ -811,6 +866,7 @@ struct DailyHistoryRow: View {
 struct TopAppsSection: View {
     let apps: [AppUsageInfo]
     let totalTime: TimeInterval
+    @State private var selectedApp: AppUsageInfo? = nil
     
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -828,7 +884,20 @@ struct TopAppsSection: View {
                         rank: index + 1,
                         percentage: totalTime > 0 ? app.duration / totalTime : 0
                     )
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 0.3)) {
+                            selectedApp = app
+                        }
+                    }
                 }
+            }
+            
+            // App Detail Sheet
+            if let app = selectedApp {
+                AppDetailView(app: app, isPresented: Binding(
+                    get: { selectedApp != nil },
+                    set: { if !$0 { selectedApp = nil } }
+                ))
             }
         }
         .padding(16)
@@ -912,3 +981,113 @@ private func formatDuration(_ duration: TimeInterval) -> String {
         return "< 1s"
     }
 }
+
+// MARK: - App Detail View
+struct AppDetailView: View {
+    let app: AppUsageInfo
+    @Binding var isPresented: Bool
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            // Overlay background
+            Color.black.opacity(0.4)
+                .ignoresSafeArea()
+                .onTapGesture {
+                    withAnimation {
+                        isPresented = false
+                    }
+                }
+            
+            // Detail Card
+            VStack(spacing: 20) {
+                // Header
+                HStack {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text(app.name)
+                            .font(.title2)
+                            .fontWeight(.bold)
+                        Text("Today's Usage Timeline")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        withAnimation {
+                            isPresented = false
+                        }
+                    }) {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.title2)
+                            .foregroundColor(.gray)
+                    }
+                }
+                
+                // Total Time Card
+                VStack(spacing: 8) {
+                    Text("Total Time Today")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                    Text(formatDuration(app.duration))
+                        .font(.system(size: 48, weight: .bold))
+                        .foregroundColor(.blue)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(20)
+                .background(Color.blue.opacity(0.1))
+                .cornerRadius(12)
+                
+                // Real data we have
+                VStack(alignment: .leading, spacing: 12) {
+                    Text("Available Data")
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                    
+                    HStack {
+                        Image(systemName: "clock.fill")
+                            .foregroundColor(.blue)
+                        Text("Total time from midnight to now")
+                        Spacer()
+                        Text(formatDuration(app.duration))
+                            .fontWeight(.semibold)
+                    }
+                    .padding(12)
+                    .background(Color(UIColor.secondarySystemGroupedBackground))
+                    .cornerRadius(8)
+                }
+                .padding(16)
+                .background(Color(UIColor.tertiarySystemGroupedBackground))
+                .cornerRadius(12)
+                
+                // Limitation notice
+                VStack(spacing: 8) {
+                    HStack(spacing: 8) {
+                        Image(systemName: "info.circle.fill")
+                            .foregroundColor(.orange)
+                        Text("Data Limitation")
+                            .font(.subheadline)
+                            .fontWeight(.semibold)
+                    }
+                    
+                    Text("iOS Screen Time API only provides daily totals for third-party apps. Hour-by-hour usage data is not available. Apple's own Screen Time has access to more detailed system-level data.")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(16)
+                .background(Color.orange.opacity(0.1))
+                .cornerRadius(12)
+            }
+            .padding(24)
+            .background(Color(UIColor.systemBackground))
+            .cornerRadius(20)
+            .padding(.horizontal, 20)
+            .shadow(color: .black.opacity(0.3), radius: 20)
+        }
+    }
+}
+
+// TimelineView removed - iOS Screen Time API doesn't provide hour-by-hour data
+// Only daily totals are available to third-party apps
