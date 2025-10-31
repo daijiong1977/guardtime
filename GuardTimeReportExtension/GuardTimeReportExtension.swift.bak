@@ -1,0 +1,814 @@
+import SwiftUI
+import DeviceActivity
+
+struct FamilyMember: Codable, Identifiable {
+    let name: String
+    let role: String
+    let appleID: String
+    var id: String { appleID }
+}
+
+@main
+struct GuardTimeReportExtension: DeviceActivityReportExtension {
+    var body: some DeviceActivityReportScene {
+        // Single scene that shows tabs for all children
+        ChildrenTabsReport()
+    }
+}
+
+// MARK: - Children Discovery Report
+struct ChildrenDiscoveryReport: DeviceActivityReportScene {
+    typealias Configuration = [FamilyMember]
+    typealias Content = ChildrenActivityView
+    
+    let context: DeviceActivityReport.Context = .init(rawValue: "ChildrenDiscovery")
+    
+    let content: (Configuration) -> Content = { children in
+        ChildrenActivityView(children: children)
+    }
+    
+    func makeConfiguration(representing data: DeviceActivityResults<DeviceActivityData>) async -> Configuration {
+        print("🔵 [EXTENSION] Discovering family members...")
+        
+        var allMembers: [FamilyMember] = []
+        
+        // Iterate through all family members
+        for await datum in data {
+            let user = datum.user
+            
+            // Get user name
+            var userName = "Unknown User"
+            if let nameComponents = user.nameComponents {
+                userName = PersonNameComponentsFormatter().string(from: nameComponents)
+            } else if let appleID = user.appleID {
+                if let atIndex = appleID.firstIndex(of: "@") {
+                    userName = String(appleID[..<atIndex])
+                } else {
+                    userName = appleID
+                }
+            }
+            
+            // Get role
+            let userRole: String
+            switch user.role {
+            case .child:
+                userRole = "Child"
+                print("✅ [EXTENSION] Found child: \(userName)")
+            case .individual:
+                userRole = "Individual"
+                print("ℹ️ [EXTENSION] Found parent/individual: \(userName)")
+            @unknown default:
+                userRole = "Unknown"
+            }
+            
+            let member = FamilyMember(
+                name: userName,
+                role: userRole,
+                appleID: user.appleID ?? UUID().uuidString
+            )
+            allMembers.append(member)
+        }
+        
+        // Filter to only children
+        let children = allMembers.filter { $0.role == "Child" }
+        print("🔵 [EXTENSION] Total members: \(allMembers.count), Children: \(children.count)")
+        
+        // Save all members to shared storage
+        saveFamilyMembersToSharedStorage(allMembers)
+        
+        return children
+    }
+}
+
+struct ChildrenActivityView: View {
+    let children: [FamilyMember]
+    
+    var body: some View {
+        VStack(spacing: 16) {
+            if children.isEmpty {
+                VStack(spacing: 12) {
+                    Image(systemName: "figure.and.child.holdinghands")
+                        .font(.system(size: 60))
+                        .foregroundColor(.gray)
+                    Text("No children found")
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                    Text("Make sure Family Sharing is set up with children")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                }
+                .padding()
+            } else {
+                Text("Found \(children.count) child(ren)")
+                    .font(.headline)
+                    .foregroundColor(.green)
+                    .padding()
+                
+                ForEach(children) { child in
+                    HStack {
+                        Image(systemName: "figure.and.child.holdinghands")
+                            .foregroundColor(.blue)
+                        Text(child.name)
+                            .font(.subheadline)
+                        Spacer()
+                        Text("Child")
+                            .font(.caption)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding()
+                    .background(Color.blue.opacity(0.1))
+                    .cornerRadius(12)
+                }
+                .padding(.horizontal)
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(UIColor.systemGroupedBackground))
+    }
+}
+
+// MARK: - Shared Storage Helper
+func saveFamilyMembersToSharedStorage(_ members: [FamilyMember]) {
+    let appGroupID = "group.com.jidai.guardtime"
+    guard let sharedDefaults = UserDefaults(suiteName: appGroupID) else {
+        print("❌ [EXTENSION] Failed to access shared UserDefaults")
+        return
+    }
+    
+    do {
+        let encoder = JSONEncoder()
+        let data = try encoder.encode(members)
+        sharedDefaults.set(data, forKey: "savedFamilyMembers")
+        sharedDefaults.set(Date().timeIntervalSince1970, forKey: "familyMembersLastUpdate")
+        sharedDefaults.synchronize() // Force immediate save
+        
+        print("✅ [EXTENSION] Saved \(members.count) family members to shared storage")
+        for member in members {
+            print("   📝 [EXTENSION] Saved: \(member.name) (\(member.role))")
+        }
+    } catch {
+        print("❌ [EXTENSION] Failed to encode family members: \(error)")
+    }
+}
+
+// MARK: - Individual Child Activity Report Scene
+struct ChildActivityReportScene: DeviceActivityReportScene {
+    let childID: String
+    
+    typealias Configuration = KidActivityConfiguration
+    typealias Content = KidActivityView
+    
+    var context: DeviceActivityReport.Context {
+        DeviceActivityReport.Context("ChildActivity_\(childID)")
+    }
+    
+    let content: (Configuration) -> Content = { config in
+        KidActivityView(config: config)
+    }
+    
+    func makeConfiguration(representing data: DeviceActivityResults<DeviceActivityData>) async -> Configuration {
+        print("🔵 [CHILD EXTENSION] makeConfiguration called for child ID: \(childID)")
+        
+        var userName = "Child"
+        var userRole = "Child"
+        var totalScreenTime: TimeInterval = 0
+        var appUsage: [(appName: String, duration: TimeInterval)] = []
+        var foundChild = false
+        
+        // Iterate through the data to find this specific child's activity
+        for await datum in data {
+            let user = datum.user
+            
+            // Check if this is the child we're looking for
+            let currentUserID = user.appleID ?? ""
+            
+            // Get user name for logging
+            var currentUserName = ""
+            if let nameComponents = user.nameComponents {
+                currentUserName = PersonNameComponentsFormatter().string(from: nameComponents)
+            } else {
+                currentUserName = currentUserID
+            }
+            
+            print("🔵 [CHILD EXTENSION] Checking user: \(currentUserName) (ID: \(currentUserID))")
+            
+            // Skip if this is not the child we're looking for
+            if currentUserID != childID {
+                print("⏭️ [CHILD EXTENSION] Skipping user (not matching): \(currentUserName)")
+                continue
+            }
+            
+            foundChild = true
+            userName = currentUserName
+            print("✅ [CHILD EXTENSION] Found matching child: \(userName)!")
+            
+            // Get role
+            switch user.role {
+            case .child: userRole = "Child"
+            case .individual: userRole = "Individual"
+            @unknown default: userRole = "Unknown"
+            }
+            
+            // Calculate total screen time from activity segments
+            for await segment in datum.activitySegments {
+                let segmentDuration = segment.totalActivityDuration
+                totalScreenTime += segmentDuration
+                print("🔵 [CHILD EXTENSION] Segment duration: \(formatDuration(segmentDuration))")
+                
+                // Get app-level details
+                for await category in segment.categories {
+                    for await app in category.applications {
+                        let appName = app.application.localizedDisplayName ?? "Unknown App"
+                        let appDuration = app.totalActivityDuration
+                        appUsage.append((appName: appName, duration: appDuration))
+                        print("🔵 [CHILD EXTENSION]   App: \(appName) - \(formatDuration(appDuration))")
+                    }
+                }
+            }
+            
+            // Break after finding the child's data
+            break
+        }
+        
+        if !foundChild {
+            print("⚠️ [CHILD EXTENSION] Child with ID \(childID) not found in data!")
+        }
+        
+        // Sort apps by duration (most used first)
+        appUsage.sort { $0.duration > $1.duration }
+        
+        print("🔵 [CHILD EXTENSION] Total screen time: \(formatDuration(totalScreenTime))")
+        print("🔵 [CHILD EXTENSION] Found \(appUsage.count) apps")
+        
+        return KidActivityConfiguration(
+            userName: userName,
+            userRole: userRole,
+            totalScreenTime: totalScreenTime,
+            appUsage: appUsage
+        )
+    }
+    
+    private func formatDuration(_ duration: TimeInterval) -> String {
+        let hours = Int(duration) / 3600
+        let minutes = (Int(duration) % 3600) / 60
+        
+        if hours > 0 {
+            return "\(hours)h \(minutes)m"
+        } else {
+            return "\(minutes)m"
+        }
+    }
+}
+
+struct KidActivityConfiguration {
+    let userName: String
+    let userRole: String
+    let totalScreenTime: TimeInterval
+    let appUsage: [(appName: String, duration: TimeInterval)]
+}
+
+struct KidActivityView: View {
+    let config: KidActivityConfiguration
+    
+    var body: some View {
+        ScrollView {
+            VStack(spacing: 20) {
+                // Header with user info
+                VStack(spacing: 8) {
+                    Image(systemName: "figure.and.child.holdinghands")
+                        .font(.system(size: 60))
+                        .foregroundColor(.blue)
+                    
+                    Text(config.userName)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                    Text(config.userRole)
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .padding()
+                
+                // Total screen time card
+                VStack(spacing: 8) {
+                    Text("Total Screen Time Today")
+                        .font(.headline)
+                        .foregroundColor(.secondary)
+                    
+                    Text(formatDuration(config.totalScreenTime))
+                        .font(.system(size: 48, weight: .bold))
+                        .foregroundColor(.blue)
+                }
+                .padding()
+                .frame(maxWidth: .infinity)
+                .background(Color.blue.opacity(0.1))
+                .cornerRadius(16)
+                .padding(.horizontal)
+                
+                // App usage list
+                if !config.appUsage.isEmpty {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text("App Usage")
+                            .font(.headline)
+                            .padding(.horizontal)
+                        
+                        ForEach(config.appUsage.indices, id: \.self) { index in
+                            let app = config.appUsage[index]
+                            HStack {
+                                Circle()
+                                    .fill(Color.blue.opacity(0.3))
+                                    .frame(width: 40, height: 40)
+                                    .overlay(
+                                        Text("\(index + 1)")
+                                            .font(.caption)
+                                            .fontWeight(.bold)
+                                            .foregroundColor(.blue)
+                                    )
+                                
+                                VStack(alignment: .leading, spacing: 4) {
+                                    Text(app.appName)
+                                        .font(.body)
+                                        .fontWeight(.medium)
+                                    
+                                    Text(formatDuration(app.duration))
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                
+                                Spacer()
+                                
+                                // Progress bar showing percentage of total time
+                                let percentage = config.totalScreenTime > 0 ? app.duration / config.totalScreenTime : 0
+                                Text("\(Int(percentage * 100))%")
+                                    .font(.caption)
+                                    .foregroundColor(.blue)
+                            }
+                            .padding()
+                            .background(Color(.systemGray6))
+                            .cornerRadius(12)
+                        }
+                        .padding(.horizontal)
+                    }
+                } else {
+                    VStack(spacing: 12) {
+                        Image(systemName: "chart.bar.xaxis")
+                            .font(.system(size: 50))
+                            .foregroundColor(.gray)
+                        Text("No app usage data available")
+                            .font(.headline)
+                            .foregroundColor(.secondary)
+                    }
+                    .padding()
+                }
+                
+                Spacer()
+            }
+            .padding(.vertical)
+        }
+        .background(Color(UIColor.systemGroupedBackground))
+    }
+    
+    private func formatDuration(_ duration: TimeInterval) -> String {
+        let hours = Int(duration) / 3600
+        let minutes = (Int(duration) % 3600) / 60
+        
+        if hours > 0 {
+            return "\(hours)h \(minutes)m"
+        } else if minutes > 0 {
+            return "\(minutes)m"
+        } else {
+            return "< 1m"
+        }
+    }
+}
+
+// MARK: - Children Tabs Report (Shows all children with tab navigation)
+struct ChildrenTabsReport: DeviceActivityReportScene {
+    typealias Configuration = ChildrenTabsConfiguration
+    typealias Content = ChildrenTabsView
+    
+    let context: DeviceActivityReport.Context = .init(rawValue: "ChildrenTabs")
+    
+    let content: (Configuration) -> Content = { config in
+        ChildrenTabsView(config: config)
+    }
+    
+    func makeConfiguration(representing data: DeviceActivityResults<DeviceActivityData>) async -> Configuration {
+        print("🔵 [TABS EXTENSION] makeConfiguration called - building children tabs!")
+        
+        var childrenData: [(child: FamilyMember, screenTime: TimeInterval, apps: [(String, TimeInterval, [(Date, TimeInterval)])])] = []
+        
+        // Iterate through all family members
+        for await datum in data {
+            let user = datum.user
+            
+            // Get user name
+            var userName = "Unknown User"
+            if let nameComponents = user.nameComponents {
+                userName = PersonNameComponentsFormatter().string(from: nameComponents)
+            } else if let appleID = user.appleID {
+                if let atIndex = appleID.firstIndex(of: "@") {
+                    userName = String(appleID[..<atIndex])
+                } else {
+                    userName = appleID
+                }
+            }
+            
+            // Get role
+            let userRole: String
+            switch user.role {
+            case .child:
+                userRole = "Child"
+                print("✅ [TABS EXTENSION] Found child: \(userName)")
+            case .individual:
+                userRole = "Individual"
+                print("ℹ️ [TABS EXTENSION] Skipping parent: \(userName)")
+                continue // Skip parents
+            @unknown default:
+                userRole = "Unknown"
+                continue
+            }
+            
+            // This is a child - calculate their screen time and apps with timeline
+            var totalScreenTime: TimeInterval = 0
+            var appUsageDict: [String: (duration: TimeInterval, timeline: [(Date, TimeInterval)])] = [:]
+            
+            // Calculate total screen time from activity segments
+            for await segment in datum.activitySegments {
+                let segmentDuration = segment.totalActivityDuration
+                let segmentDate = segment.dateInterval.start
+                totalScreenTime += segmentDuration
+                print("🔵 [TABS EXTENSION] \(userName) segment at \(segmentDate): \(formatDuration(segmentDuration))")
+                
+                // Get app-level details with timeline
+                for await category in segment.categories {
+                    for await app in category.applications {
+                        let appName = app.application.localizedDisplayName ?? "Unknown App"
+                        let appDuration = app.totalActivityDuration
+                        
+                        // Add to dictionary with timeline
+                        if var existing = appUsageDict[appName] {
+                            existing.duration += appDuration
+                            existing.timeline.append((segmentDate, appDuration))
+                            appUsageDict[appName] = existing
+                        } else {
+                            appUsageDict[appName] = (duration: appDuration, timeline: [(segmentDate, appDuration)])
+                        }
+                        
+                        print("🔵 [TABS EXTENSION]   \(userName) - \(appName) at \(segmentDate): \(formatDuration(appDuration))")
+                    }
+                }
+            }
+            
+            // Convert dictionary to sorted array
+            var appUsage: [(String, TimeInterval, [(Date, TimeInterval)])] = appUsageDict.map { (name, data) in
+                (name, data.duration, data.timeline.sorted { $0.0 < $1.0 })
+            }
+            
+            // Sort apps by total duration
+            appUsage.sort { $0.1 > $1.1 }
+            
+            let child = FamilyMember(
+                name: userName,
+                role: userRole,
+                appleID: user.appleID ?? UUID().uuidString
+            )
+            
+            childrenData.append((child: child, screenTime: totalScreenTime, apps: appUsage))
+            print("✅ [TABS EXTENSION] Added child: \(userName) with \(formatDuration(totalScreenTime))")
+        }
+        
+        print("🔵 [TABS EXTENSION] Total children found: \(childrenData.count)")
+        
+        return ChildrenTabsConfiguration(childrenData: childrenData)
+    }
+    
+    private func formatDuration(_ duration: TimeInterval) -> String {
+        let hours = Int(duration) / 3600
+        let minutes = (Int(duration) % 3600) / 60
+        
+        if hours > 0 {
+            return "\(hours)h \(minutes)m"
+        } else {
+            return "\(minutes)m"
+        }
+    }
+}
+
+struct ChildrenTabsConfiguration {
+    let childrenData: [(child: FamilyMember, screenTime: TimeInterval, apps: [(String, TimeInterval, [(Date, TimeInterval)])])]
+}
+
+struct ChildrenTabsView: View {
+    let config: ChildrenTabsConfiguration
+    @State private var selectedTab = 0
+    
+    private var currentChild: (child: FamilyMember, screenTime: TimeInterval, apps: [(String, TimeInterval, [(Date, TimeInterval)])]) {
+        config.childrenData[selectedTab]
+    }
+    
+    var body: some View {
+        VStack(spacing: 0) {
+            if config.childrenData.isEmpty {
+                // No children found
+                VStack(spacing: 20) {
+                    Image(systemName: "figure.and.child.holdinghands")
+                        .font(.system(size: 60))
+                        .foregroundColor(.gray)
+                    Text("No Children Found")
+                        .font(.title2)
+                        .foregroundColor(.secondary)
+                    Text("Make sure Family Sharing is set up with children")
+                        .font(.caption)
+                        .foregroundColor(.secondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                // Show tabs for children
+                VStack(spacing: 0) {
+                    // Tab selector
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 12) {
+                            ForEach(config.childrenData.indices, id: \.self) { index in
+                                Button(action: {
+                                    selectedTab = index
+                                }) {
+                                    VStack(spacing: 4) {
+                                        Image(systemName: "figure.and.child.holdinghands")
+                                            .font(.title2)
+                                        Text(config.childrenData[index].child.name)
+                                            .font(.subheadline)
+                                            .fontWeight(.semibold)
+                                            .lineLimit(1)
+                                    }
+                                    .padding(.horizontal, 20)
+                                    .padding(.vertical, 12)
+                                    .background(selectedTab == index ? Color.blue : Color.gray.opacity(0.2))
+                                    .foregroundColor(selectedTab == index ? .white : .primary)
+                                    .cornerRadius(12)
+                                }
+                            }
+                        }
+                        .padding()
+                    }
+                    .background(Color(.systemGroupedBackground))
+                    
+                    // Show selected child's activity
+                    if selectedTab < config.childrenData.count {
+                        let childData = config.childrenData[selectedTab]
+                        
+                        ScrollView {
+                            VStack(spacing: 20) {
+                                // Child info header
+                                VStack(spacing: 8) {
+                                    Image(systemName: "figure.and.child.holdinghands")
+                                        .font(.system(size: 60))
+                                        .foregroundColor(.blue)
+                                    
+                                    Text(childData.child.name)
+                                        .font(.title)
+                                        .fontWeight(.bold)
+                                    
+                                    Text(childData.child.role)
+                                        .font(.subheadline)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding()
+                                
+                                // Total screen time card
+                                VStack(spacing: 8) {
+                                    Text("Total Screen Time Today")
+                                        .font(.headline)
+                                        .foregroundColor(.secondary)
+                                    
+                                    Text(formatDuration(childData.screenTime))
+                                        .font(.system(size: 48, weight: .bold))
+                                        .foregroundColor(.blue)
+                                    
+                                    // Show date
+                                    Text(Date(), style: .date)
+                                        .font(.caption)
+                                        .foregroundColor(.secondary)
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity)
+                                .background(Color.blue.opacity(0.1))
+                                .cornerRadius(16)
+                                .padding(.horizontal)
+                                
+                                // Top 3 Apps - Featured Section
+                                if childData.apps.count >= 3 {
+                                    VStack(alignment: .leading, spacing: 16) {
+                                        HStack {
+                                            Image(systemName: "star.fill")
+                                                .foregroundColor(.orange)
+                                            Text("Top 3 Most Used Apps")
+                                                .font(.headline)
+                                        }
+                                        .padding(.horizontal)
+                                        
+                                        // Top 3 with visual bars and timeline
+                                        ForEach(0..<min(3, childData.apps.count), id: \.self) { index in
+                                            let app = childData.apps[index]
+                                            let percentage = childData.screenTime > 0 ? app.1 / childData.screenTime : 0
+                                            
+                                            VStack(alignment: .leading, spacing: 12) {
+                                                HStack {
+                                                    // Medal/Rank icon
+                                                    ZStack {
+                                                        Circle()
+                                                            .fill(rankColor(index))
+                                                            .frame(width: 32, height: 32)
+                                                        Text("\(index + 1)")
+                                                            .font(.headline)
+                                                            .fontWeight(.bold)
+                                                            .foregroundColor(.white)
+                                                    }
+                                                    
+                                                    VStack(alignment: .leading, spacing: 2) {
+                                                        Text(app.0)
+                                                            .font(.body)
+                                                            .fontWeight(.semibold)
+                                                        Text(formatDuration(app.1))
+                                                            .font(.caption)
+                                                            .foregroundColor(.secondary)
+                                                    }
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Text("\(Int(percentage * 100))%")
+                                                        .font(.title3)
+                                                        .fontWeight(.bold)
+                                                        .foregroundColor(rankColor(index))
+                                                }
+                                                
+                                                // Progress bar
+                                                GeometryReader { geometry in
+                                                    ZStack(alignment: .leading) {
+                                                        RoundedRectangle(cornerRadius: 4)
+                                                            .fill(Color.gray.opacity(0.2))
+                                                            .frame(height: 8)
+                                                        
+                                                        RoundedRectangle(cornerRadius: 4)
+                                                            .fill(rankColor(index))
+                                                            .frame(width: geometry.size.width * percentage, height: 8)
+                                                    }
+                                                }
+                                                .frame(height: 8)
+                                                
+                                                // Timeline visualization
+                                                if !app.2.isEmpty {
+                                                    VStack(alignment: .leading, spacing: 8) {
+                                                        HStack {
+                                                            Image(systemName: "clock.fill")
+                                                                .font(.caption)
+                                                                .foregroundColor(.gray)
+                                                            Text("Usage Timeline")
+                                                                .font(.caption)
+                                                                .foregroundColor(.secondary)
+                                                        }
+                                                        
+                                                        // Timeline bars showing usage throughout the day
+                                                        TimelineView(timeline: app.2, color: rankColor(index))
+                                                        
+                                                        // Show session details
+                                                        VStack(alignment: .leading, spacing: 4) {
+                                                            ForEach(app.2.indices, id: \.self) { sessionIndex in
+                                                                let session = app.2[sessionIndex]
+                                                                HStack(spacing: 8) {
+                                                                    Circle()
+                                                                        .fill(rankColor(index).opacity(0.6))
+                                                                        .frame(width: 6, height: 6)
+                                                                    Text(formatTime(session.0))
+                                                                        .font(.caption2)
+                                                                        .foregroundColor(.secondary)
+                                                                    Text("•")
+                                                                        .font(.caption2)
+                                                                        .foregroundColor(.secondary)
+                                                                    Text(formatDuration(session.1))
+                                                                        .font(.caption2)
+                                                                        .foregroundColor(.secondary)
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    .padding(.top, 8)
+                                                    .padding(12)
+                                                    .background(Color.gray.opacity(0.05))
+                                                    .cornerRadius(8)
+                                                }
+                                            }
+                                            .padding()
+                                            .background(Color.white)
+                                            .cornerRadius(12)
+                                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                                        }
+                                        .padding(.horizontal)
+                                    }
+                                    .padding(.vertical)
+                                    .background(Color(.systemGroupedBackground))
+                                }
+                                
+                                // All Apps - Compact List
+                                if !childData.apps.isEmpty {
+                                    VStack(alignment: .leading, spacing: 12) {
+                                        HStack {
+                                            Image(systemName: "apps.iphone")
+                                                .foregroundColor(.blue)
+                                            Text("All Apps (\(childData.apps.count))")
+                                                .font(.headline)
+                                        }
+                                        .padding(.horizontal)
+                                        
+                                        // Show all apps in compact format
+                                        ForEach(childData.apps.indices, id: \.self) { index in
+                                            let app = childData.apps[index]
+                                            let percentage = childData.screenTime > 0 ? app.1 / childData.screenTime : 0
+                                            
+                                            HStack {
+                                                // Number badge
+                                                Text("\(index + 1)")
+                                                    .font(.caption)
+                                                    .fontWeight(.bold)
+                                                    .foregroundColor(.white)
+                                                    .frame(width: 24, height: 24)
+                                                    .background(Color.blue.opacity(0.7))
+                                                    .cornerRadius(12)
+                                                
+                                                VStack(alignment: .leading, spacing: 2) {
+                                                    Text(app.0)
+                                                        .font(.subheadline)
+                                                        .fontWeight(.medium)
+                                                    
+                                                    Text(formatDuration(app.1))
+                                                        .font(.caption)
+                                                        .foregroundColor(.secondary)
+                                                }
+                                                
+                                                Spacer()
+                                                
+                                                Text("\(Int(percentage * 100))%")
+                                                    .font(.caption)
+                                                    .fontWeight(.semibold)
+                                                    .foregroundColor(.blue)
+                                            }
+                                            .padding(.horizontal)
+                                            .padding(.vertical, 8)
+                                            .background(index < 3 ? Color.blue.opacity(0.05) : Color.clear)
+                                        }
+                                    }
+                                    .padding(.vertical)
+                                } else {
+                                    VStack(spacing: 12) {
+                                        Image(systemName: "chart.bar.xaxis")
+                                            .font(.system(size: 50))
+                                            .foregroundColor(.gray)
+                                        Text("No app usage data available")
+                                            .font(.headline)
+                                            .foregroundColor(.secondary)
+                                    }
+                                    .padding()
+                                }
+                                
+                                Spacer()
+                            }
+                            .padding(.vertical)
+                        }
+                    }
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color(UIColor.systemGroupedBackground))
+    }
+    
+    private func formatDuration(_ duration: TimeInterval) -> String {
+        let hours = Int(duration) / 3600
+        let minutes = (Int(duration) % 3600) / 60
+        
+        if hours > 0 {
+            return "\(hours)h \(minutes)m"
+        } else if minutes > 0 {
+            return "\(minutes)m"
+        } else {
+            return "< 1m"
+        }
+    }
+    
+    private func rankColor(_ rank: Int) -> Color {
+        switch rank {
+        case 0: return Color.orange  // Gold/1st place
+        case 1: return Color.blue    // Silver/2nd place
+        case 2: return Color.purple  // Bronze/3rd place
+        default: return Color.gray
+        }
+    }
+    
+    private func formatTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "h:mm a"
+        return formatter.string(from: date)
+    }
+}

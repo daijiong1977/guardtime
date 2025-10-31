@@ -1,0 +1,818 @@
+Command line invocation:
+    /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -project GuardTimeApp.xcodeproj -scheme GuardTimeApp -destination "platform=iOS Simulator,name=iPhone 17" clean build
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+** CLEAN SUCCEEDED **
+
+ComputePackagePrebuildTargetDependencyGraph
+
+Prepare packages
+
+CreateBuildRequest
+
+SendProjectDescription
+
+CreateBuildOperation
+
+ComputeTargetDependencyGraph
+note: Building targets in dependency order
+note: Target dependency graph (2 targets)
+    Target 'GuardTimeApp' in project 'GuardTimeApp'
+        ➜ Explicit dependency on target 'GuardTimeReportExtension' in project 'GuardTimeApp'
+    Target 'GuardTimeReportExtension' in project 'GuardTimeApp' (no dependencies)
+
+GatherProvisioningInputs
+
+CreateBuildDescription
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -v -E -dM -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -x c -c /dev/null
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc --version
+
+ExecuteExternalTool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ld -version_details
+
+Build description signature: 9648e870dbd3f8e154ad10add98a80b3
+Build description path: /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/XCBuildData/9648e870dbd3f8e154ad10add98a80b3.xcbuilddata
+ClangStatCache /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk /Users/jidai/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache
+    cd /Users/jidai/iphone/GuardTimeApp/GuardTimeApp.xcodeproj
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang-stat-cache /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -o /Users/jidai/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache
+
+CreateBuildDirectory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products
+    cd /Users/jidai/iphone/GuardTimeApp/GuardTimeApp.xcodeproj
+    builtin-create-build-directory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products
+
+CreateBuildDirectory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex
+    cd /Users/jidai/iphone/GuardTimeApp/GuardTimeApp.xcodeproj
+    builtin-create-build-directory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex
+
+CreateBuildDirectory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator
+    cd /Users/jidai/iphone/GuardTimeApp/GuardTimeApp.xcodeproj
+    builtin-create-build-directory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator
+
+CreateBuildDirectory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/ExplicitPrecompiledModules
+    cd /Users/jidai/iphone/GuardTimeApp/GuardTimeApp.xcodeproj
+    builtin-create-build-directory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/ExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+    cd /Users/jidai/iphone/GuardTimeApp/GuardTimeApp.xcodeproj
+    builtin-create-build-directory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules
+
+CreateBuildDirectory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+    cd /Users/jidai/iphone/GuardTimeApp/GuardTimeApp.xcodeproj
+    builtin-create-build-directory /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp-4c67f5125d236a64f71a384b235623e0-VFS-iphonesimulator/all-product-headers.yaml
+    cd /Users/jidai/iphone/GuardTimeApp/GuardTimeApp.xcodeproj
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp-4c67f5125d236a64f71a384b235623e0-VFS-iphonesimulator/all-product-headers.yaml
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_const_extract_protocols.json (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftConstValuesFileList (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.LinkFileList (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.LinkFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftFileList (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-OutputFileMap.json (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.hmap (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.DependencyStaticMetadataFileList (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.DependencyMetadataFileList (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-project-headers.hmap (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-project-headers.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-own-target-headers.hmap (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-generated-files.hmap (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-generated-files.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-all-target-headers.hmap (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-all-non-framework-target-headers.hmap (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugEntryPoint-normal-arm64.txt (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugEntryPoint-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugDylibPath-normal-arm64.txt (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugDylibInstallName-normal-arm64.txt (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugDylibInstallName-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources/Entitlements-Simulated.plist (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources/Entitlements-Simulated.plist
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftFileList (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_const_extract_protocols.json (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_const_extract_protocols.json
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftConstValuesFileList (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftConstValuesFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.LinkFileList (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.LinkFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-OutputFileMap.json (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-OutputFileMap.json
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.hmap (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.DependencyStaticMetadataFileList (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.DependencyStaticMetadataFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.DependencyMetadataFileList (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.DependencyMetadataFileList
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-project-headers.hmap (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-project-headers.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-own-target-headers.hmap (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-own-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-generated-files.hmap (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-generated-files.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-all-target-headers.hmap (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-all-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-all-non-framework-target-headers.hmap (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-all-non-framework-target-headers.hmap
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-DebugDylibPath-normal-arm64.txt (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-DebugDylibPath-normal-arm64.txt
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-DebugDylibInstallName-normal-arm64.txt (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-DebugDylibInstallName-normal-arm64.txt
+
+MkDir /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /bin/mkdir -p /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex
+
+WriteAuxiliaryFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources/Entitlements-Simulated.plist (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    write-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources/Entitlements-Simulated.plist
+
+MkDir /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /bin/mkdir -p /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app
+
+MkDir /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PlugIns (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /bin/mkdir -p /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PlugIns
+
+ProcessProductPackaging /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/GuardTimeReportExtension.entitlements /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex.xcent (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Entitlements:
+    
+    {
+}
+    
+    builtin-productPackagingUtility /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/GuardTimeReportExtension.entitlements -entitlements -format xml -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex.xcent
+
+ProcessProductPackaging /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/GuardTimeReportExtension.entitlements /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Entitlements:
+    
+    {
+    "application-identifier" = "W6BCH2M54V.com.jidai.guardtime.reportextension";
+    "com.apple.developer.family-controls" = 1;
+    "com.apple.security.application-groups" =     (
+        "group.com.jidai.guardtime"
+    );
+}
+    
+    builtin-productPackagingUtility /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/GuardTimeReportExtension.entitlements -entitlements -format xml -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent
+
+ProcessProductPackagingDER /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex.xcent /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex.xcent.der (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /usr/bin/derq query -f xml -i /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex.xcent -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex.xcent.der --raw
+
+ProcessProductPackagingDER /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent.der (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /usr/bin/derq query -f xml -i /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent.der --raw
+
+ProcessInfoPlistFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/Info.plist /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/Info.plist (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-infoPlistUtility /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/Info.plist -producttype com.apple.product-type.app-extension -expandbuildsettings -format binary -platform iphonesimulator -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/Info.plist
+
+Ld /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/__preview.dylib normal (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios16.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -install_name @rpath/GuardTimeReportExtension.debug.dylib -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_dependency_info.dat -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent.der -Xlinker -no_adhoc_codesign -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/__preview.dylib
+
+SwiftDriver GuardTimeReportExtension normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GuardTimeReportExtension -Onone -enforce-exclusivity\=checked @/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios16.0-simulator -g -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-generated-files.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-own-target-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-project-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources-normal/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-Swift.h -working-directory /Users/jidai/iphone/GuardTimeApp -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrcheck-WCPTOXFL12IYR2CEBKD11ZPL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DeveloperToolsSupport-8LR6IQORPWLEVMSKW594I1BCR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_float-8XI3A2SDDFQTHFU0AGKGBG9OA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrauth-95C115W127WWN6QBLROE636L8.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdbool-D3CYJ3BWXUB94AI5R19Y4LXF7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-CXC1Y8OBQ8E6GXZGTKPSUOR0U.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stddef-3EY1YQO4YA2FY73NF9UFKXRWC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdarg-91EBEG9ITTIP2Z35OB85S1IRV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-CT01CGXMWXCJCNF4J2A7DVX3I.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_AvailabilityInternal-EDFIU6NNQ33JEXXNKN4E2AWKY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation1-9MS18T85GL3G3HENV3OO4PHL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation2-NO8MIFQTTUCEPIFZ209HOMKY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ExtensionFoundation-66861K3M9P6CE470VM64O9JRD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_limits-3Q25I0U9ZG22258ALTW4ATQ8P.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_tgmath-1C5TTWDK9HNHX4KYJWHXFJEMQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/sys_types-23BNZQL7BQILCKKRAJ9N68RLQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdint-AK2TKAENUVWAFJT5GFHEVN9ZR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation3-AE5XUZRVWNXZAMLBSO3EOG7P4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdatomic-2NC5URF0HPN6FVP302TOPO6X9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_intrinsics-7G5WUJAU2SJ1M9HTDG2YLBW31.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_inttypes-3HMYFDQPFRLOSYZYM49TNWTFK.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Darwin-B57KGV8OCLCPMXGX30HKN6JP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/simd-CW4GQ0XLHCZHQYNOS1579RHD5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/MachO-1JVPLQDA73RDQDHIX6BOJ78PT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-5DNZX3EAX40DH5KDNU7HZTH89.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_object-7ZFT0AUI7EDC74R3O2273P8KM.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_workgroup-E64IZS3AH3URZXY8UHPZSMU4X.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Dispatch-6U6WN1597LSQ87XGWU6MBP4YT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Spatial-9RZEWJF2EYMRMMDPBHKV2B8GA.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/XPC-3Z0CVGRX6NQ5556Z20WWR6XJG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreFoundation-8C8F907PG7WOGRQV71KPV4XY5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/dnssd-4K9WKLSXNB11S0TA43EMTN5HP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os-BM7X72NMPVKMGDLT2HYO6UHXP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CFNetwork-3UDBDHE4G4SZBX456JC7IUAW6.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreGraphics-4RWHFOQYSEM9L5I99FDESIQ79.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Security-5N71P91N07J9MGK8NDUMA0YXC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-7QNZ8YY5B7UNJLMIKZ12TNPEB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ImageIO-6Z4PIK3BD3HM792CNEY417NPO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreText-TGROP8UTIC7VGYZCC42LQCOS.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/FileProvider-5R9PS051STIXUFWM6NR442K97.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OpenGLES-2QZL3RUFSTXP3UGR201XC7QNU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UserNotifications-3W5JZCMD8MSQWKMSMXVWXK978.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/IOSurface-2EWIE6PXSL0E1QCI45CDTPBDU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DataDetection-6MCXMX2B7AJ97FKKUKQLX0PI2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Network-921T98ZO5GXG8VZ0RA3UKAHKF.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OSLog-1K8NX0MQ2MAYS2E35DNU9WI61.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Symbols-C9HMMJ9WI7D1ZVJXF7XTQPT6U.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Accessibility-8J3RDQ38GXRRMDDGZZE70NUHE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UniformTypeIdentifiers-28A0W8UENWVIYATG87PM8J130.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIUtilities-DMIDSXUUN94QQC1U8LSE4IFNC.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreTransferable-BGI0GUI04085NO6TN6O4FOMWO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Metal-CGFP8VNR3FBK2J2XL3MOD63GG.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreData-AU44K7DQI0RB6C7S6UAN7JMB2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreVideo-3FZWGMY1G07UFZ85TMF1VOAOR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/QuartzCore-6MITFXHB1LO9XPDSXF2PV4K8G.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreImage-XG8Z4KXHIPCPJ6TDOE14K4JU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftUICore-2RPMFZHLK9U81PFT76LLYOC03.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-BK2TDKDSIW453D8TA4917DXE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ExtensionKit-CDDQ3OZ50NMNGNYKF463CXCZ2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftUI-E1L4AEXYMSCHBDM2C5BE5ZJMY.pcm
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ GuardTimeReportExtension (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/GuardTimeReportExtension.swift (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftCompile normal arm64 Compiling\ GuardTimeReportExtension.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/GuardTimeReportExtension.swift (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeReportExtension/GuardTimeReportExtension.swift (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for GuardTimeReportExtension (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+
+SwiftDriver\ Compilation\ Requirements GuardTimeReportExtension normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GuardTimeReportExtension -Onone -enforce-exclusivity\=checked @/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios16.0-simulator -g -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-generated-files.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-own-target-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-project-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources-normal/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-Swift.h -working-directory /Users/jidai/iphone/GuardTimeApp -experimental-emit-module-separately -disable-cmo
+
+SwiftMergeGeneratedHeaders /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources/GuardTimeReportExtension-Swift.h /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-Swift.h (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-swiftHeaderTool -arch arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-Swift.h -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources/GuardTimeReportExtension-Swift.h
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.abi.json (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.abi.json /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftdoc (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftdoc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftmodule (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftmodule /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftsourceinfo (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftsourceinfo /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+ProcessProductPackaging /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/GuardTimeApp.entitlements /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app.xcent (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Entitlements:
+    
+    {
+}
+    
+    builtin-productPackagingUtility /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/GuardTimeApp.entitlements -entitlements -format xml -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app.xcent
+
+ProcessProductPackaging /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/GuardTimeApp.entitlements /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Entitlements:
+    
+    {
+    "application-identifier" = "W6BCH2M54V.com.jidai.guardtime";
+    "com.apple.developer.family-controls" = 1;
+    "com.apple.security.application-groups" =     (
+        "group.com.jidai.guardtime"
+    );
+}
+    
+    builtin-productPackagingUtility /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/GuardTimeApp.entitlements -entitlements -format xml -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent
+
+ProcessProductPackagingDER /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app.xcent /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app.xcent.der (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /usr/bin/derq query -f xml -i /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app.xcent -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app.xcent.der --raw
+
+ProcessProductPackagingDER /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent.der (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /usr/bin/derq query -f xml -i /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent.der --raw
+
+SwiftDriver GuardTimeApp normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-SwiftDriver -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GuardTimeApp -Onone -enforce-exclusivity\=checked @/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios16.0-simulator -g -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-generated-files.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-own-target-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-project-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources-normal/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-Swift.h -working-directory /Users/jidai/iphone/GuardTimeApp -experimental-emit-module-separately -disable-cmo
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdbool-B8QM2QZYG5PT5CPBWVALWCAEY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftShims-9RKW8BUXPOSLZXM1WLNTDR2EJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrauth-DKU07ZUB85F5SM60MC5O944BO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DeveloperToolsSupport-C1IGVUEK4LECWF26BHWAB8QUR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_float-3O6MKCB0A11TIYEFQ06Y64WA7.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stddef-7MIYN539D5R0G1G6JLJ8FGREV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdarg-6P26E9G3A1R1I4LYHDTI1KCSF.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ptrcheck-1FG3LAH9PKHOWSKW941R9BJHH.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_AvailabilityInternal-69E558CUG5E7YOX3R4YPXP87B.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_SwiftConcurrencyShims-DOKOQGD75J284E4L7JPA4CGW2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation1-5RWTSAIFUOQF80SHKOWG4DCD.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation2-1H485BUWV74RVBHEJBRT9R2S9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ExtensionFoundation-5GG9IYORNG80RUYOU1RG0S05N.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_limits-72VK3XCIY18NM66UH9SC99VY0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_tgmath-4WREGK2UWNLTUBKCDF7SWY8R5.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/sys_types-7VU2DMCVK10JRABO5FUGEEGUW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdint-DOGUIFC3YMHFMJ65B9HVQD463.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_stdatomic-38LI913DNSYFYP7AV2JWK07QL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_intrinsics-4HDKQ7FUBV678RF97Y260P4QB.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_DarwinFoundation3-BUU2F7UJ0U1OP2YNZPOG6HEUU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/_Builtin_inttypes-64YSRC1POE6KBTZF3G9O9ST9Z.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Darwin-DKKWER68AU2NQWFQMFP9XSD59.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/simd-A9YAMA5VXEFUT3E9XY55U6RL9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ObjectiveC-5Q4JVMYLRY5W1Y1XYR1LUBAC9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/MachO-5QZJN4W3RQ7241J2EP3P8SDRL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_object-DGOJ7BYZ31BD1I6DI3ARI2D4N.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os_workgroup-C1U3BG735WFRYPWY1HMQGKEYE.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Dispatch-3TN60ZLGF7QRYVRA848TJZ0NO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Spatial-AQLNT1B9EF6D7HD5HM1QIVP41.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/XPC-BIT0WUY2MEODAQ4LCHHLMXU0P.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreFoundation-B5V6C5L8P5S7VPL765ASLYXK2.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/dnssd-2RM3BSBCBELLD3CBD8H5RO5JO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/os-6HPSN9M6XJ1KRWX1VQIQS9CPW.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CFNetwork-EMCTEANGVO15IQKA7MF1264A1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreServices-1U0WK753S98QAMNVGLLR6EZJQ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Security-C3PMS7CPGO2ZJIN7JP9T65AU1.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreGraphics-9EA4IZQ8REIOH09DTNB4KGK3H.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Foundation-7BF2F47W1O3KGGT2W119S8UXO.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreText-8AJSQ89UVDNZMRSR46NH7ORJT.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ImageIO-UPTHHH68ZSCSUDV0KA8FSNWU.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UniformTypeIdentifiers-7QPLZM5ZXFJW8JMRQZUA6Q3P3.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UserNotifications-7XPF51UC76YEJ8R512G581RAR.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreData-LTBQQZMHZE6FYYBMX04KANCJ.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/DataDetection-3FZNSXID94YTEBS5FZS3QXAN0.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/FileProvider-4MC7Q8PY2A0FV4WI7FCQBBFQ4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OSLog-58T0N6UTP8D2XXEZVHYULZT6J.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/IOSurface-17VPVUI29V2QESJI0WQK57J9P.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Accessibility-8CJH2EJWZH2D6EA1EB5C6CSQ4.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreTransferable-8OZR2VQWGGH885A4A95C4YB0W.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIUtilities-NIA53QAA1NDM0Q810OVN3RCI.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/OpenGLES-1EF5IKQZAHC56ZF1KRWHXBQGY.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Symbols-8G9NMBQVSW7HKMAABK6OJQWUX.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Metal-CHVEAC5781YDI6U31SUJVXUV.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Network-EB559XDZADKQ8OZGMJYV40D6R.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreVideo-NXDD0KQ2YMBIO4PZGXX5Y23Y.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/CoreImage-50ZN9P65LK1SI8XYS8ULVYOK9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/QuartzCore-AZB3FYGZ0MYX5858OPS6IBC4Y.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftUICore-6K4HTIH35TF3TO0GFTE5ZING9.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/UIKit-3PT39FZTRNBM7RSJQYY9BPAGP.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/ExtensionKit-2AQNJ6OTB49YW3FN2SXKUWYGL.pcm
+
+SwiftExplicitDependencyGeneratePcm arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/SwiftUI-C9SMSM042APONDHDIZVL1W379.pcm
+
+SwiftEmitModule normal arm64 Emitting\ module\ for\ GuardTimeApp (in target 'GuardTimeApp' from project 'GuardTimeApp')
+EmitSwiftModule normal arm64 (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftCompile normal arm64 Compiling\ ContentView.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/ContentView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/ContentView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftCompile normal arm64 Compiling\ ScreenTimeService.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Services/ScreenTimeService.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Services/ScreenTimeService.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+/Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Services/ScreenTimeService.swift:122:17: warning: initialization of immutable value 'filter' was never used; consider replacing with assignment to '_' or removing it
+            let filter = DeviceActivityFilter(
+            ~~~~^~~~~~
+            _
+
+SwiftCompile normal arm64 Compiling\ FamilyMember.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Models/FamilyMember.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Models/FamilyMember.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftCompile normal arm64 Compiling\ ScreenTimeReportView.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/ScreenTimeReportView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/ScreenTimeReportView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftCompile normal arm64 Compiling\ SharedStorageService.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Services/SharedStorageService.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Services/SharedStorageService.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftCompile normal arm64 Compiling\ GuardTimeApp.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/GuardTimeApp.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/GuardTimeApp.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftCompile normal arm64 Compiling\ FamilyDataStore.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Services/FamilyDataStore.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Services/FamilyDataStore.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+SwiftDriverJobDiscovery normal arm64 Compiling GuardTimeReportExtension.swift (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+
+SwiftDriverJobDiscovery normal arm64 Compiling FamilyMember.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftDriver\ Compilation GuardTimeReportExtension normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GuardTimeReportExtension -Onone -enforce-exclusivity\=checked @/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios16.0-simulator -g -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -application-extension -enable-testing -index-store-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -parse-as-library -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-generated-files.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-own-target-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-project-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources-normal/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-Swift.h -working-directory /Users/jidai/iphone/GuardTimeApp -experimental-emit-module-separately -disable-cmo
+
+SwiftCompile normal arm64 Compiling\ KidDetailView.swift /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/KidDetailView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftCompile normal arm64 /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/KidDetailView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+
+Ld /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension.debug.dylib normal (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios16.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -filelist /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.LinkFileList -install_name @rpath/GuardTimeReportExtension.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/../../Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_dependency_info.dat -fapplication-extension -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.swiftmodule @/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension-linker-args.resp -Xlinker -alias -Xlinker _NSExtensionMain -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension.debug.dylib
+
+SwiftDriverJobDiscovery normal arm64 Emitting module for GuardTimeApp (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftDriver\ Compilation\ Requirements GuardTimeApp normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-Swift-Compilation-Requirements -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GuardTimeApp -Onone -enforce-exclusivity\=checked @/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios16.0-simulator -g -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-generated-files.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-own-target-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-project-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources-normal/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-Swift.h -working-directory /Users/jidai/iphone/GuardTimeApp -experimental-emit-module-separately -disable-cmo
+
+SwiftDriverJobDiscovery normal arm64 Compiling FamilyDataStore.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftDriverJobDiscovery normal arm64 Compiling SharedStorageService.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftMergeGeneratedHeaders /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources/GuardTimeApp-Swift.h /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-Swift.h (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-swiftHeaderTool -arch arm64 /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-Swift.h -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources/GuardTimeApp-Swift.h
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.swiftmodule/arm64-apple-ios-simulator.swiftmodule /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftmodule (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftmodule /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.swiftmodule/arm64-apple-ios-simulator.swiftmodule
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.swiftmodule/arm64-apple-ios-simulator.swiftdoc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftdoc (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftdoc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.swiftmodule/arm64-apple-ios-simulator.swiftdoc
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.swiftmodule/arm64-apple-ios-simulator.abi.json /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.abi.json (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.abi.json /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.swiftmodule/arm64-apple-ios-simulator.abi.json
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftsourceinfo (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -rename /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftsourceinfo /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo
+
+SwiftDriverJobDiscovery normal arm64 Compiling GuardTimeApp.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ScreenTimeReportView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftDriverJobDiscovery normal arm64 Compiling KidDetailView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ContentView.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftDriverJobDiscovery normal arm64 Compiling ScreenTimeService.swift (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+SwiftDriver\ Compilation GuardTimeApp normal arm64 com.apple.xcode.tools.swift.compiler (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-Swift-Compilation -- /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc -module-name GuardTimeApp -Onone -enforce-exclusivity\=checked @/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftFileList -DDEBUG -enable-bare-slash-regex -enable-experimental-feature DebugDescriptionMacro -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -target arm64-apple-ios16.0-simulator -g -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -Xfrontend -serialize-debugging-options -enable-testing -index-store-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Index.noindex/DataStore -Xcc -D_LIBCPP_HARDENING_MODE\=_LIBCPP_HARDENING_MODE_DEBUG -swift-version 5 -I /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -c -j8 -enable-batch-mode -incremental -Xcc -ivfsstatcache -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/SDKStatCaches.noindex/iphonesimulator26.0-23A339-26257891a6c027eb51374368541b8346.sdkstatcache -output-file-map /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-OutputFileMap.json -use-frontend-parseable-output -save-temps -no-color-diagnostics -explicit-module-build -module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/SwiftExplicitPrecompiledModules -clang-scanner-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -sdk-module-cache-path /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex -serialize-diagnostics -emit-dependencies -emit-module -emit-module-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftmodule -validate-clang-modules-once -clang-build-session-file /Users/jidai/Library/Developer/Xcode/DerivedData/ModuleCache.noindex/Session.modulevalidation -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/swift-overrides.hmap -emit-const-values -Xfrontend -const-gather-protocols-file -Xfrontend /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_const_extract_protocols.json -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-generated-files.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-own-target-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-all-target-headers.hmap -Xcc -iquote -Xcc /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-project-headers.hmap -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/include -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources-normal/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources/arm64 -Xcc -I/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/DerivedSources -Xcc -DDEBUG\=1 -emit-objc-header -emit-objc-header-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-Swift.h -working-directory /Users/jidai/iphone/GuardTimeApp -experimental-emit-module-separately -disable-cmo
+
+ConstructStubExecutorLinkFileList /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-ExecutorLinkFileList-normal-arm64.txt (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    construct-stub-executor-link-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+
+Ld /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension normal (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios16.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -Xlinker -rpath -Xlinker @executable_path/../../Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_entry -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugEntryPoint-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex-Simulated.xcent.der /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension
+
+ExtractAppIntentsMetadata (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name GuardTimeReportExtension --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk --xcode-version 17A400 --platform-family iOS --deployment-target 16.0 --bundle-identifier com.jidai.guardtime.reportextension --output /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex --target-triple arm64-apple-ios16.0-simulator --binary-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension --dependency-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension_dependency_info.dat --stringsdata-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftFileList --metadata-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.DependencyMetadataFileList --static-metadata-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.DependencyStaticMetadataFileList --swift-const-vals-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/Objects-normal/arm64/GuardTimeReportExtension.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-10-30 23:49:10.877 appintentsmetadataprocessor[71378:440214] Starting appintentsmetadataprocessor export
+2025-10-30 23:49:10.881 appintentsmetadataprocessor[71378:440214] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/Info.plist --temp-dir-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/ssu --bundle-id com.jidai.guardtime.reportextension --product-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex --extracted-metadata-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/Metadata.appintents --metadata-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.DependencyMetadataFileList --archive-ssu-assets
+2025-10-30 23:49:10.910 appintentsnltrainingprocessor[71379:440215] Parsing options for appintentsnltrainingprocessor
+2025-10-30 23:49:10.911 appintentsnltrainingprocessor[71379:440215] No AppShortcuts found - Skipping.
+
+CodeSign /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension.debug.dylib (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/GuardTimeReportExtension.debug.dylib
+
+CodeSign /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/__preview.dylib (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex/__preview.dylib
+
+CodeSign /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeReportExtension.build/GuardTimeReportExtension.appex.xcent --timestamp\=none --generate-entitlement-der /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex
+
+RegisterExecutionPolicyException /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-RegisterExecutionPolicyException /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex
+
+Touch /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex (in target 'GuardTimeReportExtension' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /usr/bin/touch -c /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex
+
+Ld /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/__preview.dylib normal (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios16.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -install_name @rpath/GuardTimeApp.debug.dylib -dead_strip -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_dependency_info.dat -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent.der -Xlinker -no_adhoc_codesign -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/__preview.dylib
+
+Ld /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp.debug.dylib normal (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios16.0-simulator -dynamiclib -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -L/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/EagerLinkingTBDs/Debug-iphonesimulator -F/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -filelist /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.LinkFileList -install_name @rpath/GuardTimeApp.debug.dylib -Xlinker -rpath -Xlinker /usr/lib/swift -Xlinker -rpath -Xlinker @executable_path/Frameworks -dead_strip -Xlinker -object_path_lto -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_lto.o -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -Xlinker -dependency_info -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_dependency_info.dat -fobjc-link-runtime -L/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator -L/usr/lib/swift -Xlinker -add_ast_path -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.swiftmodule @/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp-linker-args.resp -Xlinker -alias -Xlinker _main -Xlinker ___debug_main_executable_dylib_entry_point -Xlinker -no_adhoc_codesign -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp.debug.dylib
+
+ConstructStubExecutorLinkFileList /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-ExecutorLinkFileList-normal-arm64.txt (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    construct-stub-executor-link-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp.debug.dylib /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor_no_swift_entry_point.a /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/lib/libPreviewsJITStubExecutor.a --output /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-ExecutorLinkFileList-normal-arm64.txt
+note: Using stub executor library with Swift entry point. (in target 'GuardTimeApp' from project 'GuardTimeApp')
+
+Ld /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp normal (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -Xlinker -reproducible -target arm64-apple-ios16.0-simulator -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk -O0 -L/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -F/Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator -Xlinker -rpath -Xlinker @executable_path -Xlinker -rpath -Xlinker @executable_path/Frameworks -rdynamic -Xlinker -no_deduplicate -Xlinker -objc_abi_version -Xlinker 2 -e ___debug_blank_executor_main -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_dylib -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-DebugDylibPath-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __debug_instlnm -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-DebugDylibInstallName-normal-arm64.txt -Xlinker -filelist -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp-ExecutorLinkFileList-normal-arm64.txt -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __entitlements -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent -Xlinker -sectcreate -Xlinker __TEXT -Xlinker __ents_der -Xlinker /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app-Simulated.xcent.der /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp.debug.dylib -Xlinker -no_adhoc_codesign -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp
+
+Copy /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PlugIns/GuardTimeReportExtension.appex /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -exclude Headers -exclude PrivateHeaders -exclude Modules -exclude \*.tbd -resolve-src-symlinks -remove-static-executable /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeReportExtension.appex /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PlugIns
+
+ProcessInfoPlistFile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/Info.plist /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Info.plist (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-infoPlistUtility /Users/jidai/iphone/GuardTimeApp/GuardTimeApp/Info.plist -producttype com.apple.product-type.application -genpkginfo /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -scanforprivacyfile /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PlugIns/GuardTimeReportExtension.appex -o /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/Info.plist
+
+CopySwiftLibs /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-swiftStdLibTool --copy --verbose --sign - --scan-executable /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp.debug.dylib --scan-folder /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/Frameworks --scan-folder /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PlugIns --scan-folder /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/SystemExtensions --scan-folder /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/Extensions --platform iphonesimulator --toolchain /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --destination /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/Frameworks --strip-bitcode --strip-bitcode-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/bitcode_strip --emit-dependency-info /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/SwiftStdLibToolInputDependencies.dep --filter-for-swift-os
+
+ExtractAppIntentsMetadata (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsmetadataprocessor --toolchain-dir /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain --module-name GuardTimeApp --sdk-root /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator26.0.sdk --xcode-version 17A400 --platform-family iOS --deployment-target 16.0 --bundle-identifier com.jidai.guardtime --output /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app --target-triple arm64-apple-ios16.0-simulator --binary-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp --dependency-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp_dependency_info.dat --stringsdata-file /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/ExtractedAppShortcutsMetadata.stringsdata --source-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftFileList --metadata-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.DependencyMetadataFileList --static-metadata-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.DependencyStaticMetadataFileList --swift-const-vals-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/Objects-normal/arm64/GuardTimeApp.SwiftConstValuesFileList --compile-time-extraction --deployment-aware-processing --validate-assistant-intents --no-app-shortcuts-localization
+2025-10-30 23:49:11.316 appintentsmetadataprocessor[71390:440264] Starting appintentsmetadataprocessor export
+2025-10-30 23:49:11.317 appintentsmetadataprocessor[71390:440264] warning: Metadata extraction skipped. No AppIntents.framework dependency found.
+
+AppIntentsSSUTraining (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/appintentsnltrainingprocessor --infoplist-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/Info.plist --temp-dir-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/ssu --bundle-id com.jidai.guardtime --product-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app --extracted-metadata-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/Metadata.appintents --metadata-file-list /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.DependencyMetadataFileList --archive-ssu-assets
+2025-10-30 23:49:11.333 appintentsnltrainingprocessor[71391:440265] Parsing options for appintentsnltrainingprocessor
+2025-10-30 23:49:11.334 appintentsnltrainingprocessor[71391:440265] No AppShortcuts found - Skipping.
+
+CodeSign /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp.debug.dylib (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/GuardTimeApp.debug.dylib
+
+CodeSign /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/__preview.dylib (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --timestamp\=none --generate-entitlement-der /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/__preview.dylib
+
+CodeSign /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    
+    Signing Identity:     "Sign to Run Locally"
+    
+    /usr/bin/codesign --force --sign - --entitlements /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Intermediates.noindex/GuardTimeApp.build/Debug-iphonesimulator/GuardTimeApp.build/GuardTimeApp.app.xcent --timestamp\=none --generate-entitlement-der /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app
+
+ValidateEmbeddedBinary /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PlugIns/GuardTimeReportExtension.appex (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /Applications/Xcode.app/Contents/Developer/usr/bin/embeddedBinaryValidationUtility /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/PlugIns/GuardTimeReportExtension.appex -signing-cert - -info-plist-path /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app/Info.plist
+
+RegisterExecutionPolicyException /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-RegisterExecutionPolicyException /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app
+
+Validate /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    builtin-validationUtility /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app -shallow-bundle -infoplist-subpath Info.plist
+
+Touch /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app (in target 'GuardTimeApp' from project 'GuardTimeApp')
+    cd /Users/jidai/iphone/GuardTimeApp
+    /usr/bin/touch -c /Users/jidai/Library/Developer/Xcode/DerivedData/GuardTimeApp-ditrujlkqphbhyflmiwynndxpenf/Build/Products/Debug-iphonesimulator/GuardTimeApp.app
+
+** BUILD SUCCEEDED **
+

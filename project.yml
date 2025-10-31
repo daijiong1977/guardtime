@@ -1,0 +1,56 @@
+name: GuardTimeApp
+options:
+  bundleIdPrefix: com.jidai
+  deploymentTarget:
+    iOS: 16.0
+  generateEmptyDirectories: true
+  createIntermediateGroups: true
+targets:
+  GuardTimeApp:
+    type: application
+    platform: iOS
+    deploymentTarget: 16.0
+    sources:
+      - GuardTimeApp
+    dependencies:
+      - target: GuardTimeReportExtension
+        embed: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jidai.guardtime
+        CODE_SIGN_ENTITLEMENTS: GuardTimeApp/GuardTimeApp.entitlements
+        INFOPLIST_FILE: GuardTimeApp/Info.plist
+        TARGETED_DEVICE_FAMILY: 1
+        SWIFT_VERSION: 5.9
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: W6BCH2M54V
+  
+  GuardTimeReportExtension:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: 16.0
+    sources:
+      - GuardTimeReportExtension
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.jidai.guardtime.reportextension
+        CODE_SIGN_ENTITLEMENTS: GuardTimeReportExtension/GuardTimeReportExtension.entitlements
+        INFOPLIST_FILE: GuardTimeReportExtension/Info.plist
+        TARGETED_DEVICE_FAMILY: 1
+        SWIFT_VERSION: 5.9
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: W6BCH2M54V
+        SKIP_INSTALL: NO
+
+schemes:
+  GuardTimeApp:
+    build:
+      targets:
+        GuardTimeApp: all
+        GuardTimeReportExtension: all
+    run:
+      config: Debug
+    profile:
+      config: Release
+    archive:
+      config: Release
