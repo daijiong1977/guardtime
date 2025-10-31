@@ -17,13 +17,14 @@ struct ScreenTimeReportView: View {
         let calendar = Calendar.current
         let now = Date()
         
-        // Request TODAY's data only for fast initial load
-        let startOfToday = calendar.startOfDay(for: now)
-        let endOfToday = calendar.date(byAdding: .day, value: 1, to: startOfToday)!
+        // Always request last 8 days (today + 7 previous days)
+        // Extension will handle showing/hiding history view internally
+        let today = calendar.startOfDay(for: now)
+        let sevenDaysAgo = calendar.date(byAdding: .day, value: -7, to: today)!
+        let endOfToday = calendar.date(byAdding: .day, value: 1, to: today)!
         
-        // Request daily segments
         return DeviceActivityFilter(
-            segment: .daily(during: DateInterval(start: startOfToday, end: endOfToday)),
+            segment: .daily(during: DateInterval(start: sevenDaysAgo, end: endOfToday)),
             users: .all,
             devices: .init([.iPhone, .iPad])
         )

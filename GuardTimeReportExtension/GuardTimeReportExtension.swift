@@ -76,14 +76,20 @@ struct TotalActivityReport: DeviceActivityReportScene {
             var todayApps: [String: (TimeInterval, String)] = [:]
             var weeklyData: [Date: (socialTime: TimeInterval, studyTime: TimeInterval, apps: [String: (TimeInterval, String)])] = [:]
             
-            // Process segments
+            // Process segments - each segment represents a specific day's data
             for await segment in datum.activitySegments {
-                let segmentDate = calendar.startOfDay(for: segment.dateInterval.start)
-                let isToday = calendar.isDate(segmentDate, inSameDayAs: today)
+                // Get the day this segment represents
+                let segmentStartDay = calendar.startOfDay(for: segment.dateInterval.start)
+                let segmentEndDay = calendar.startOfDay(for: segment.dateInterval.end)
                 
-                var socialTimeThisSegment: TimeInterval = 0
-                var studyTimeThisSegment: TimeInterval = 0
-                var appsThisSegment: [String: (TimeInterval, String)] = [:]
+                // Determine which day this segment belongs to
+                // DeviceActivity uses .daily segment, so each segment should be one full day
+                let segmentDay = segmentStartDay
+                let isToday = calendar.isDate(segmentDay, inSameDayAs: today)
+                
+                var socialTimeThisDay: TimeInterval = 0
+                var studyTimeThisDay: TimeInterval = 0
+                var appsThisDay: [String: (TimeInterval, String)] = [:]
                 
                 for await category in segment.categories {
                     let categoryName = category.category.localizedDisplayName ?? "Other"
@@ -92,29 +98,30 @@ struct TotalActivityReport: DeviceActivityReportScene {
                                   categoryName.lowercased().contains("networking")
                     
                     if isSocial {
-                        socialTimeThisSegment += category.totalActivityDuration
+                        socialTimeThisDay += category.totalActivityDuration
                         
                         for await app in category.applications {
                             let appName = app.application.localizedDisplayName ?? "Unknown App"
                             let appDuration = app.totalActivityDuration
                             let tokenString = "\(app.application.token.hashValue)"
                             
-                            if let existing = appsThisSegment[appName] {
-                                appsThisSegment[appName] = (existing.0 + appDuration, existing.1)
+                            if let existing = appsThisDay[appName] {
+                                appsThisDay[appName] = (existing.0 + appDuration, existing.1)
                             } else {
-                                appsThisSegment[appName] = (appDuration, tokenString)
+                                appsThisDay[appName] = (appDuration, tokenString)
                             }
                             
                             // Estimate study hours (6-10 PM ≈ 17% of day)
-                            studyTimeThisSegment += appDuration * 0.17
+                            studyTimeThisDay += appDuration * 0.17
                         }
                     }
                 }
                 
+                // Store data for this specific day
                 if isToday {
-                    todaySocialTime += socialTimeThisSegment
-                    todayStudyTimeSocial += studyTimeThisSegment
-                    for (appName, appData) in appsThisSegment {
+                    todaySocialTime += socialTimeThisDay
+                    todayStudyTimeSocial += studyTimeThisDay
+                    for (appName, appData) in appsThisDay {
                         if let existing = todayApps[appName] {
                             todayApps[appName] = (existing.0 + appData.0, existing.1)
                         } else {
@@ -122,20 +129,20 @@ struct TotalActivityReport: DeviceActivityReportScene {
                         }
                     }
                 } else {
-                    // Store historical data
-                    if var existing = weeklyData[segmentDate] {
-                        existing.socialTime += socialTimeThisSegment
-                        existing.studyTime += studyTimeThisSegment
-                        for (appName, appData) in appsThisSegment {
+                    // Store historical data for this specific day
+                    if var existing = weeklyData[segmentDay] {
+                        existing.socialTime += socialTimeThisDay
+                        existing.studyTime += studyTimeThisDay
+                        for (appName, appData) in appsThisDay {
                             if let existingApp = existing.apps[appName] {
                                 existing.apps[appName] = (existingApp.0 + appData.0, existingApp.1)
                             } else {
                                 existing.apps[appName] = appData
                             }
                         }
-                        weeklyData[segmentDate] = existing
+                        weeklyData[segmentDay] = existing
                     } else {
-                        weeklyData[segmentDate] = (socialTimeThisSegment, studyTimeThisSegment, appsThisSegment)
+                        weeklyData[segmentDay] = (socialTimeThisDay, studyTimeThisDay, appsThisDay)
                     }
                 }
             }
@@ -145,33 +152,38 @@ struct TotalActivityReport: DeviceActivityReportScene {
             }.sorted { $0.duration > $1.duration }
             .prefix(5).map { $0 }
             
-            // Create weekly history array
-            var weeklyHistory: [DailyActivityData] = []
-            for i in 1...7 {
-                let date = calendar.date(byAdding: .day, value: -i, to: today)!
-                let dayStart = calendar.startOfDay(for: date)
-                
-                if let dayData = weeklyData[dayStart] {
-                    let apps = dayData.apps.map {
-                        AppUsageInfo(name: $0.key, duration: $0.value.0, token: $0.value.1)
-                    }.sorted { $0.duration > $1.duration }
+            // Create weekly history array ONLY if we have historical data
+            // Order: Yesterday (most recent) to 7 days ago (farthest)
+            var weeklyHistory: [DailyActivityData]? = nil
+            if !weeklyData.isEmpty {
+                var historyArray: [DailyActivityData] = []
+                for i in 1...7 {
+                    let date = calendar.date(byAdding: .day, value: -i, to: today)!
+                    let dayStart = calendar.startOfDay(for: date)
                     
-                    weeklyHistory.append(DailyActivityData(
-                        date: dayStart,
-                        totalSocialTime: dayData.socialTime,
-                        socialTimeDuringStudyHours: dayData.studyTime,
-                        apps: apps
-                    ))
-                } else {
-                    weeklyHistory.append(DailyActivityData(
-                        date: dayStart,
-                        totalSocialTime: 0,
-                        socialTimeDuringStudyHours: 0,
-                        apps: []
-                    ))
+                    if let dayData = weeklyData[dayStart] {
+                        let apps = dayData.apps.map {
+                            AppUsageInfo(name: $0.key, duration: $0.value.0, token: $0.value.1)
+                        }.sorted { $0.duration > $1.duration }
+                        
+                        historyArray.append(DailyActivityData(
+                            date: dayStart,
+                            totalSocialTime: dayData.socialTime,
+                            socialTimeDuringStudyHours: dayData.studyTime,
+                            apps: apps
+                        ))
+                    } else {
+                        historyArray.append(DailyActivityData(
+                            date: dayStart,
+                            totalSocialTime: 0,
+                            socialTimeDuringStudyHours: 0,
+                            apps: []
+                        ))
+                    }
                 }
+                // Keep natural order: yesterday first, then older days
+                weeklyHistory = historyArray
             }
-            weeklyHistory = weeklyHistory.reversed()
             
             let child = FamilyMember(
                 name: userName,
@@ -184,7 +196,7 @@ struct TotalActivityReport: DeviceActivityReportScene {
                 todaySocialTime: todaySocialTime,
                 todayStudyTimeSocial: todayStudyTimeSocial,
                 todayTopApps: topApps,
-                weeklyHistory: weeklyHistory.isEmpty ? nil : weeklyHistory
+                weeklyHistory: weeklyHistory
             )
             
             childrenActivities.append(childData)
@@ -319,7 +331,7 @@ struct ChildActivityContentView: View {
                     // History view
                     historyView
                 } else {
-                    // Today's view (default - fast)
+                    // Today's view (default)
                     todayView
                 }
             }
@@ -352,33 +364,31 @@ struct ChildActivityContentView: View {
             }
             
             // View History Button
-            if activityData.weeklyHistory != nil {
-                Button(action: {
-                    withAnimation(.easeInOut(duration: 0.3)) {
-                        showHistory = true
-                    }
-                }) {
-                    HStack {
-                        Image(systemName: "calendar")
-                            .font(.title3)
-                        Text("View Weekly History")
-                            .font(.headline)
-                        Spacer()
-                        Image(systemName: "chevron.right")
-                    }
-                    .foregroundColor(.white)
-                    .padding(20)
-                    .background(
-                        LinearGradient(
-                            gradient: Gradient(colors: [.purple, .blue]),
-                            startPoint: .leading,
-                            endPoint: .trailing
-                        )
-                    )
-                    .cornerRadius(16)
+            Button(action: {
+                withAnimation(.easeInOut(duration: 0.3)) {
+                    showHistory = true
                 }
-                .buttonStyle(PlainButtonStyle())
+            }) {
+                HStack {
+                    Image(systemName: "calendar")
+                        .font(.title3)
+                    Text("View Weekly History")
+                        .font(.headline)
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                }
+                .foregroundColor(.white)
+                .padding(20)
+                .background(
+                    LinearGradient(
+                        gradient: Gradient(colors: [.purple, .blue]),
+                        startPoint: .leading,
+                        endPoint: .trailing
+                    )
+                )
+                .cornerRadius(16)
             }
+            .buttonStyle(PlainButtonStyle())
         }
     }
     
@@ -405,12 +415,23 @@ struct ChildActivityContentView: View {
             .buttonStyle(PlainButtonStyle())
             .padding(.top, 8)
             
-            if let weeklyHistory = activityData.weeklyHistory {
+            if let weeklyHistory = activityData.weeklyHistory, !weeklyHistory.isEmpty {
                 // Weekly Average Chart
                 WeeklyActivityChart(dailyActivities: weeklyHistory)
                 
                 // Weekly History List
                 WeeklyHistorySection(dailyActivities: weeklyHistory)
+            } else {
+                // Loading or no data state
+                VStack(spacing: 16) {
+                    ProgressView()
+                        .scaleEffect(1.5)
+                    Text("Loading weekly history...")
+                        .font(.subheadline)
+                        .foregroundColor(.secondary)
+                }
+                .frame(maxWidth: .infinity)
+                .padding(40)
             }
         }
     }
@@ -672,7 +693,7 @@ struct WeeklyHistorySection: View {
                             date: dayData.date,
                             socialTime: dayData.totalSocialTime / 3600.0,
                             studyTimeSocial: dayData.socialTimeDuringStudyHours / 3600.0,
-                            isYesterday: index == dailyActivities.count - 1,
+                            isYesterday: index == 0,
                             isHighlighted: highlightedDay == index
                         )
                     }
@@ -710,6 +731,17 @@ struct DailyHistoryRow: View {
     var body: some View {
         HStack(spacing: 12) {
             VStack(spacing: 2) {
+                if isYesterday {
+                    Text("Yesterday")
+                        .font(.caption)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 3)
+                        .background(Color.purple)
+                        .cornerRadius(6)
+                }
+                
                 Text(dateFormatter.string(from: date))
                     .font(.system(size: 32, weight: .bold))
                     .foregroundColor(isHighlighted ? .pink : (isYesterday ? .purple : .primary))
@@ -717,17 +749,6 @@ struct DailyHistoryRow: View {
             .frame(width: 60)
             
             VStack(alignment: .leading, spacing: 8) {
-                if isYesterday {
-                    Text("Yesterday")
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .padding(.horizontal, 10)
-                        .padding(.vertical, 4)
-                        .background(Color.purple)
-                        .cornerRadius(8)
-                }
-                
                 HStack(spacing: 8) {
                     Image(systemName: "bubble.left.and.bubble.right.fill")
                         .font(.title3)
